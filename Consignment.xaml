@@ -1,0 +1,55 @@
+﻿<Window x:Class="BlueBirdKassa.Consignment"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Накладные" Height="474" Width="800" WindowState="Normal" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="110" MinHeight="60" />
+            <RowDefinition Height="325*" />
+        </Grid.RowDefinitions>
+        <Grid Name="grid1" VerticalAlignment="Top" Height="98">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition MinWidth="60" Width="60" />
+                <ColumnDefinition MinWidth="100" Width="100" />
+                <ColumnDefinition MinWidth="50" Width="50" />
+                <ColumnDefinition MinWidth="100" Width="100" />
+                <ColumnDefinition MinWidth="90" Width="90" />
+                <ColumnDefinition MinWidth="100" Width="100" />
+                <ColumnDefinition MinWidth="80" Width="80" />
+                <ColumnDefinition MinWidth="100" Width="100" />
+                <ColumnDefinition MinWidth="200" Width="200*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="20" />
+                <RowDefinition Height="35" />
+                <RowDefinition Height="10" />
+                <RowDefinition Height="35*" />
+            </Grid.RowDefinitions>
+            <Label Content="Артикул:" Height="20" HorizontalAlignment="Left" Margin="6,6,0,0" Name="label2" VerticalAlignment="Top" Padding="1" FontSize="11" Grid.Row="1" />
+            <TextBox Height="20" HorizontalAlignment="Left" Margin="48,6,0,0" Name="textBox1" VerticalAlignment="Top" Width="98" FontSize="10" TabIndex="1" Grid.Column="1" Text="" GotFocus="textBox1_GotFocus" Grid.Row="1" Grid.ColumnSpan="2" />
+            <Label Content="Наименование:" Grid.Row="1" Height="20" HorizontalAlignment="Left" Margin="52,6,0,0" Name="label3" VerticalAlignment="Top" FontSize="11" Padding="1" Grid.Column="5" Grid.ColumnSpan="2" />
+            <TextBox Grid.Row="1" Height="20" HorizontalAlignment="Left" Margin="36,6,0,0" Name="textBox2" VerticalAlignment="Top" Width="98" FontSize="10" TabIndex="3" Grid.Column="6" Text="" GotFocus="textBox2_GotFocus" Grid.ColumnSpan="2" />
+            <Label Content="Группа:" Grid.Row="1" Height="20" HorizontalAlignment="Left" Margin="23,6,0,0" Name="label4" VerticalAlignment="Top" FontSize="11" Padding="1" Grid.Column="3" />
+            <TextBox Grid.Row="1" Height="20" HorizontalAlignment="Left" Margin="25,6,0,0" Name="textBox3" VerticalAlignment="Top" Width="98" FontSize="10" TabIndex="2" Grid.Column="4" Text="" GotFocus="textBox3_GotFocus" Grid.ColumnSpan="2" />
+            <Button Content="Поиск" Grid.Column="8" Grid.Row="1" Height="23" HorizontalAlignment="Left" Margin="10,5,0,0" Name="button2" VerticalAlignment="Top" Width="75" Click="button2_Click" IsDefault="False" TabIndex="5" />
+            <Label Content="Номер накладной:" Height="20" HorizontalAlignment="Left" Margin="6,3,0,0" x:Name="label2_Copy" VerticalAlignment="Top" Padding="1" FontSize="11" Grid.Row="3" Grid.ColumnSpan="2" Width="102" />
+            <TextBox x:Name="textBoxNum" Grid.ColumnSpan="3" Grid.Column="1" HorizontalAlignment="Left" Height="20" Margin="48,3,0,0" Grid.Row="3" TextWrapping="Wrap" VerticalAlignment="Top" Width="98"/>
+            <Label Content="Дата накладной:" Height="20" HorizontalAlignment="Left" Margin="23,3,0,0" x:Name="label2_Copy1" VerticalAlignment="Top" Padding="1" FontSize="11" Grid.Row="3" Grid.ColumnSpan="2" Width="102" Grid.Column="3" />
+            <TextBox Grid.Row="3" Height="20" HorizontalAlignment="Left" Margin="25,3,0,0" x:Name="textBoxDate" VerticalAlignment="Top" Width="98" FontSize="10" TabIndex="3" Grid.Column="4" Text="" Grid.ColumnSpan="2" />
+        </Grid>
+        <DataGrid AutoGenerateColumns="False" HorizontalAlignment="Stretch" Name="dataGrid1" VerticalAlignment="Top" ItemsSource="{Binding}" HorizontalScrollBarVisibility="Auto" IsReadOnly="True" SelectedIndex="0" Grid.Row="1" Margin="0,18,0,0">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Номер накладной" Binding="{Binding Path=Element[n_id].Value}"/>
+                <DataGridTextColumn Header="Артикул" Binding="{Binding Path=Element[articul].Value}"/>
+                <DataGridTextColumn Header="Группа" Binding="{Binding Path=Element[gg_name].Value}"/>
+                <DataGridTextColumn Header="Наименование" Binding="{Binding Path=Element[g_name].Value}"/>
+                <DataGridTextColumn Header="Цена (руб.)" Binding="{Binding Path=Element[price_rub].Value}"/>
+                <DataGridTextColumn Header="Цена (коп.)" Binding="{Binding Path=Element[price_kop].Value}"/>
+                <DataGridTextColumn Header="Поступило (шт.)" Binding="{Binding Path=Element[cnt].Value}"/>
+                <DataGridTextColumn Header="Тип накладной" Binding="{Binding Path=Element[consig_type].Value}"/>
+                <DataGridTextColumn Header="Поступило от" Binding="{Binding Path=Element[depot_from].Value}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+    </Grid>
+</Window>

@@ -1,0 +1,9 @@
+﻿<Window x:Class="BlueBirdKassa.WindowAlerts"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title=" " Height="263" Width="300" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Grid Height="215">
+        <TextBlock Height="128" HorizontalAlignment="Left" Margin="12,12,0,0" Name="textBlock1" Text="TextBlock" VerticalAlignment="Top" Width="254" Foreground="Red" FontWeight="Bold" TextWrapping="Wrap" />
+        <Button Content="Закрыть" Height="23" HorizontalAlignment="Left" Margin="98,167,0,0" Name="button1" VerticalAlignment="Top" Width="75" IsDefault="True" IsCancel="True" />
+    </Grid>
+</Window>
